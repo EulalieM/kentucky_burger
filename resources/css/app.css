@@ -1,0 +1,240 @@
+:root {
+    --beige-color: #FFF9F4;
+    --brown-color: #221000;
+    --red-color: #67140E;
+}
+
+@font-face {
+    font-family: "Buffalo";
+    src: url("/fonts/BuffaloInline2Grunge.otf")
+}
+
+#menu-overlay {
+    display: none;
+}
+
+body {
+    background-color: var(--beige-color);
+}
+
+h2 {
+    font-size: 32px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =====================================
+                HEADER
+===================================== */
+
+header {
+    z-index: 3;
+}
+
+nav a, .nav-carte {
+    font-family: "Open Sans", serif;
+    color: var(--brown-color);
+    font-weight: bold;
+}
+
+nav a:hover, .panier:hover {
+    color: var(--red-color);
+}
+
+.panier {
+    border: 1px solid var(--brown-color);
+    font-family: "Open Sans", serif;
+    color: var(--brown-color);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.header-desktop {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 500px;
+    justify-content: space-between;
+}
+
+/* =====================================
+                MAIN
+===================================== */
+
+main {
+    color: var(--brown-color);
+    font-family: "Open Sans", serif;
+}
+
+/* -------------- Accueil -------------- */
+
+.accueil {
+    background-image: url("/img/accueil.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: var(--beige-color);
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.bg-opacity {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 40%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.titre {
+    font-family: "Buffalo", serif;
+    font-size: 150px;
+    font-weight: 400;
+    margin: 0;
+    text-shadow: 2px 2px 2px var(--brown-color);
+}
+
+.titre-description {
+    font-size: 40px;
+    font-family: "Open Sans", serif;
+    text-shadow: 2px 2px 2px var(--brown-color);
+}
+
+.chevron {
+    width: 40px;
+}
+
+.lien-chevron {
+    width: 40px;
+    margin: 0 auto 0 auto;
+}
+
+.center {
+    width: 800px;
+    margin: 90px auto 90px auto;
+    text-align: center;
+}
+
+.iframe {
+    margin: auto;
+}
+
+.carte {
+    width: 100%;
+    position: relative;
+}
+
+.bg-opacity-carte {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 40%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carte-lien {
+    z-index: 2;
+    position: absolute;
+    font-size: 60px;
+    color: var(--beige-color);
+    text-shadow: 2px 2px 2px var(--brown-color);
+    margin: auto;
+    top: 40%;
+    right: 40%;
+    text-align: center;
+}
+
+.sous-titre {
+    font-size: 26px;
+    font-style: italic;
+    margin: 0 0 30px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.champs {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px;
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: solid 1px var(--brown-color);
+    outline: none;
+    margin: 5px;
+}
+
+textarea {
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: solid 1px var(--brown-color);
+    outline: none;
+    margin: 5px;
+}
+
+input[type=submit] {
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+/* =====================================
+                FOOTER
+===================================== */
+
+footer, footer a {
+    color: var(--beige-color);
+    font-family: "Open Sans", serif;
+}
+
+.footer {
+    background-color: var(--brown-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.titre-footer {
+    font-family: "Buffalo", serif;
+    font-size: 40px;
+}
+
+.icon {
+    width: 40px;
+}
+
+.liens {
+    display: flex;
+    flex-direction: column;
+}
