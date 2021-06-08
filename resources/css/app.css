@@ -43,7 +43,7 @@ nav a:hover, .panier:hover {
     color: var(--red-color);
 }
 
-.panier {
+.commande {
     border: 1px solid var(--brown-color);
     font-family: "Open Sans", serif;
     color: var(--brown-color);

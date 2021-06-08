@@ -15,16 +15,17 @@
         <header>
         <div>
             <div class="header-desktop">
-                <a id="logo" href="index.php"><img src="images/logo.png" alt="kentuckyburger" height="61px"></a>
+                <a id="logo" href=""><img src="images/logo.png" alt="kentuckyburger" height="61px"></a>
                 <nav>
                     <ul class="header-nav">
-                        <li><a href="index.php#presentation" class="uppercase">Présentation</a></li>
-                        <li><a href="index.php#coordonnees" class="uppercase">Coordonnées</a></li>
-                        <li><a href="index.php#contact" class="uppercase">Contact</a></li>
-                        <li><a href="lacarte.php" class="uppercase">La carte</a></li>
+                        <li><a href="{{ route('home') }}" class="uppercase">Présentation</a></li>
+                        <li><a href="{{ route('home') }}" class="uppercase">Coordonnées</a></li>
+                        <li><a href="{{ route('home') }}" class="uppercase">Contact</a></li>
+                        <li><a href="{{ route('products') }}" class="uppercase">Nos produits</a></li>
                     </ul>
                 </nav>
-                <a href="panier.php" class="panier">Mon panier</a>
+                <a href="{{ route('order') }}" class="commande">Ma commande</a>
+                <a href="{{ route('login') }}" class="connexion">Connexion</a>
             </div>
                 <div id="menu-hamburger">
                     <span></span>
@@ -41,8 +42,8 @@
         <footer>
             <div class="footer">
                 <div class="liens">
-                    <a href="./plandusite.html">Plan du site</a>
-                    <a href="./mentions.html">Mentions légales</a>
+                    <a href="">Plan du site</a>
+                    <a href="">Mentions légales</a>
                 </div>
                 <div>
                     <p class="titre-footer">KENTUCKY BURGER</p>
@@ -56,7 +57,7 @@
                 </div>
             </div>
         </footer>
-        
+
     </body>
 
 </html>
