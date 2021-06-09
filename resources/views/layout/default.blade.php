@@ -13,25 +13,16 @@
     <body>
 
         <header>
-        <div>
-            <div class="header-desktop">
-                <a id="logo" href=""><img src="images/logo.png" alt="kentuckyburger" height="61px"></a>
+            <div class="header-content">
+                <a href="{{ route('home') }}"><img src="https://via.placeholder.com/130x70" alt="Logo Kentucky Burger" height="61px"></a>
                 <nav>
                     <ul class="header-nav">
-                        <li><a href="{{ route('home') }}" class="uppercase">Présentation</a></li>
-                        <li><a href="{{ route('home') }}" class="uppercase">Coordonnées</a></li>
-                        <li><a href="{{ route('home') }}" class="uppercase">Contact</a></li>
-                        <li><a href="{{ route('products') }}" class="uppercase">Nos produits</a></li>
+                        <li><a href="{{ route('productsnav') }}">Nos produits</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
+                        <li><a href="{{ route('order') }}">Ma commande</a></li>
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
                     </ul>
                 </nav>
-                <a href="{{ route('order') }}" class="commande">Ma commande</a>
-                <a href="{{ route('login') }}" class="connexion">Connexion</a>
-            </div>
-                <div id="menu-hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </header>
 
@@ -40,10 +31,10 @@
         </main>
 
         <footer>
-            <div class="footer">
+            <div class="footer-content">
                 <div class="liens">
-                    <a href="">Plan du site</a>
-                    <a href="">Mentions légales</a>
+                    <a href="{{ route('sitemap') }}">Plan du site</a>
+                    <a href="{{ route('legal_notice') }}">Mentions légales</a>
                 </div>
                 <div>
                     <p class="titre-footer">KENTUCKY BURGER</p>
