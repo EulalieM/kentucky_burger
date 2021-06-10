@@ -9,6 +9,20 @@ use App\Models\Product;
 
 class ProductsController extends Controller
 {
+
+    /* --- View products --- */
+
+    public function index() {
+        $products = Product::all();
+        return view('shop.index', compact('products'));
+    }
+
+    public function read($id, $slug) {
+        // détail d'un produit
+    }
+
+    /* --- Form admin --- */
+
     public function create() {
         return view('shop.create');
     }
@@ -20,11 +34,16 @@ class ProductsController extends Controller
         return redirect(route('shop.products.create'));
     }
 
-    public function index() {
-        return view('shop.index');
+    public function edit($id) {
+
     }
 
-    public function read($id, $slug) {
-        // détail d'un produit
+    public function update($id) {
+
     }
+
+    public function delete($id) {
+
+    }
+
 }
