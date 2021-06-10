@@ -9,19 +9,22 @@ Accueil
 @section('content')
 
 <div class="home-content">
-    <section class="accueil">
-        <div class="bg-opacity"></div>
-        <h1 class="titre uppercase">Kentucky<br>
+
+    <div class="bg-opacity"></div>
+
+    <section class="home-container">
+        <h1 class="title uppercase">Kentucky<br>
             Burger</h1>
-        <p class="titre-description">Votre restaurant de burger<br>
+        <p class="text">Votre restaurant de burger<br>
             à Angoulême</p>
     </section>
 
-    <section class="accueil">
-        <p class="titre-description">Sur place, à emporter, en livraison ?<br>
+    <section class="home-container">
+        <p class="text">Sur place, à emporter, en livraison ?<br>
             Choisissez !</p>
         <a href="{{ route('shop.index') }}" class="cta uppercase">Commander maintenant</a>
     </section>
+
 </div>
 
 @endsection

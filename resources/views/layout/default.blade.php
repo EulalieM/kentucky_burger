@@ -12,19 +12,22 @@
 
     <body>
 
-        <header>
+        <header class="header">
             <div class="header-content">
-                <a href="{{ route('pages.index') }}"><img src="https://via.placeholder.com/130x70" alt="Logo Kentucky Burger" height="61px"></a>
+                <a href="{{ route('pages.index') }}" class="logo"><img src="https://via.placeholder.com/130x70" alt="Logo Kentucky Burger" height="61px"></a>
                 <nav>
                     <ul class="header-nav">
-                        <li>
+
+                        <li class="drop-down">
                             <a href="{{ route('shop.index') }}">Nos produits</a>
-                            <ul>
+                            <ul class="drop-down-content">
                                 <li><a href="{{ route('shop.index') }}#nos-burgers">Nos burgers</a></li>
                                 <li><a href="{{ route('shop.index') }}#nos-boissons">Nos boissons</a></li>
                                 <li><a href="{{ route('shop.index') }}#nos-desserts">Nos desserts</a></li>
                             </ul>
                         </li>
+
+                        <li><a href="#">Ma commande</a></li> <!-- page à créer -->
                         <li><a href="{{ route('pages.contact') }}">Contact</a></li>
                         <li><a href="{{ route('admin.index') }}">Administrateur</a></li>
                     </ul>
