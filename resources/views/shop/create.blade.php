@@ -1,5 +1,11 @@
 @extends('layout.admin')
 
+@section('title')
+
+Administrateur - Gestion des produits
+
+@endsection
+
 @section('content')
 
 <h1>Ajouter un produit en BDD</h1>

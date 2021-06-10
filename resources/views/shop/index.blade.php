@@ -1,5 +1,11 @@
 @extends('layout.default')
 
+@section('title')
+
+Nos produits
+
+@endsection
+
 @section('content')
 
 <p>La page avec tous les produits avec des ancres</p>

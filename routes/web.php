@@ -41,7 +41,7 @@ Route::prefix('produits')->group(function() {
 
 /* --- Admin --- */
 Route::prefix('administrateur')->group(function() {
-    Route::get('/', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
     Route::get('/produits', [ProductsController::class, 'create'])->name('shop.products.create');
     Route::post('/produits', [ProductsController::class, 'store'])->name('shop.products.store');
 });

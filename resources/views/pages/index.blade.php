@@ -1,5 +1,11 @@
 @extends('layout.default')
 
+@section('title')
+
+Accueil
+
+@endsection
+
 @section('content')
 
 <div class="home-content">
