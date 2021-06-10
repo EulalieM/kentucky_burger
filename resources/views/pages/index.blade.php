@@ -14,7 +14,7 @@
     <section class="accueil">
         <p class="titre-description">Sur place, à emporter, en livraison ?<br>
             Choisissez !</p>
-        <a href="{{ route('products') }}" class="cta uppercase">Commander maintenant</a>
+        <a href="{{ route('shop.index') }}" class="cta uppercase">Commander maintenant</a>
     </section>
 </div>
 

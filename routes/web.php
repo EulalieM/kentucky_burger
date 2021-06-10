@@ -1,13 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProductsNavController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\LoginController;
+
+/* --- Pages --- */
+use App\Http\Controllers\Pages\PagesController;
+use App\Http\Controllers\Pages\ContactController;
+
+/* --- Shop --- */
+use App\Http\Controllers\Shop\ProductsController;
+
+/* --- Admin --- */
+use App\Http\Controllers\admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,18 +23,25 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
-Route::get('/productsnav', [ProductsNavController::class, 'productsNav'])->name('productsnav');
-Route::get('/products', [ProductsController::class, 'products'])->name('products');
-Route::get('/product', [ProductController::class, 'product'])->name('product');
-Route::get('/order', [OrderController::class, 'order'])->name('order');
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+/* --- Pages --- */
+Route::get('/', [PagesController::class, 'index'])->name('pages.index');
+Route::get('/mentions-legales', [PagesController::class, 'legalNotice'])->name('pages.legal_notice');
+Route::get('/plan-du-site', [PagesController::class, 'sitemap'])->name('pages.sitemap');
+Route::get('/contact', [ContactController::class, 'contact'])->name('pages.contact');
+Route::post('/contact', [ContactController::class, 'process'])->name('pages.contact.process');
 
-Route::get('/legal_notice', function() {
-    return view('legal_notice');
-})->name('legal_notice');
+/* --- Shop --- */
+Route::prefix('produits')->group(function() {
+    Route::get('/', [ProductsController::class, 'index'])->name('shop.index');
+    Route::get('/{slug}-{id}', [ProductsController::class, 'read'])
+        ->name('shop.read')
+        ->where('slug', '[a-zA-Z0-9-_]+')
+        ->where('id', '[0-9]+');
+});
 
-Route::get('/sitemap', function() {
-    return view('sitemap');
-})->name('sitemap');
+/* --- Admin --- */
+Route::prefix('administrateur')->group(function() {
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/produits', [ProductsController::class, 'create'])->name('shop.products.create');
+    Route::post('/produits', [ProductsController::class, 'store'])->name('shop.products.store');
+});

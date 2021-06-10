@@ -2,4 +2,6 @@
 
 @section('content')
 
+<p>Page contact pour les utilisateurs</p>
+
 @endsection

@@ -14,13 +14,19 @@
 
         <header>
             <div class="header-content">
-                <a href="{{ route('home') }}"><img src="https://via.placeholder.com/130x70" alt="Logo Kentucky Burger" height="61px"></a>
+                <a href="{{ route('pages.index') }}"><img src="https://via.placeholder.com/130x70" alt="Logo Kentucky Burger" height="61px"></a>
                 <nav>
                     <ul class="header-nav">
-                        <li><a href="{{ route('productsnav') }}">Nos produits</a></li>
-                        <li><a href="{{ route('contact') }}">Contact</a></li>
-                        <li><a href="{{ route('order') }}">Ma commande</a></li>
-                        <li><a href="{{ route('login') }}">Connexion</a></li>
+                        <li>
+                            <a href="{{ route('shop.index') }}">Nos produits</a>
+                            <ul>
+                                <li><a href="{{ route('shop.index') }}#nos-burgers">Nos burgers</a></li>
+                                <li><a href="{{ route('shop.index') }}#nos-boissons">Nos boissons</a></li>
+                                <li><a href="{{ route('shop.index') }}#nos-desserts">Nos desserts</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('pages.contact') }}">Contact</a></li>
+                        <li><a href="{{ route('admin.dashboard') }}">Administrateur</a></li>
                     </ul>
                 </nav>
             </div>
@@ -33,8 +39,8 @@
         <footer>
             <div class="footer-content">
                 <div class="liens">
-                    <a href="{{ route('sitemap') }}">Plan du site</a>
-                    <a href="{{ route('legal_notice') }}">Mentions légales</a>
+                    <a href="{{ route('pages.sitemap') }}">Plan du site</a>
+                    <a href="{{ route('pages.legal_notice') }}">Mentions légales</a>
                 </div>
                 <div>
                     <p class="titre-footer">KENTUCKY BURGER</p>

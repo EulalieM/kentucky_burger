@@ -2,5 +2,7 @@
 
 @section('content')
 
+<p>Le plan du site</p>
+
 @endsection
 
