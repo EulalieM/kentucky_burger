@@ -5,6 +5,7 @@ namespace App\Http\Controllers\shop;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\RequestCreateProduct;
+use App\Http\Requests\RequestUpdateProduct;
 use App\Models\Product;
 
 class ProductsController extends Controller
@@ -31,19 +32,34 @@ class ProductsController extends Controller
         $product = new Product($request->except('_token'));
         // dd($product);
         $product->save();
-        return redirect(route('shop.products.create'));
+        return redirect(route('admin.products'));
     }
 
     public function edit($id) {
-
+        $product = Product::find($id);
+        return view('shop.edit', compact('product'));
     }
 
-    public function update($id) {
-
+    public function update(RequestUpdateProduct $request, $id) {
+        $product = Product::find($id);
+        $product->category = $request->get('category');
+        $product->name = $request->get('name');
+        $product->description = $request->get('description');
+        $product->price = $request->get('price');
+        $product->image = $request->get('image');
+        $product->stock = $request->get('stock');
+        $product->save();
+        return redirect(route('admin.products'));
     }
 
     public function delete($id) {
+        $product = Product::find($id);
+        return view('shop.delete', compact('product'));
+    }
 
+    public function destroy($id) {
+        Product::destroy($id);
+        return redirect(route('admin.products'));
     }
 
 }

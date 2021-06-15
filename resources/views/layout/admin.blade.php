@@ -16,7 +16,7 @@
             <nav>
                 <ul>
                     <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
-                    <li><a href="{{ route('shop.products.create') }}">Gestion des produits</a></li>
+                    <li><a href="{{ route('admin.products') }}">Gestion des produits</a></li>
                 </ul>
             </nav>
         </header>

@@ -41,7 +41,26 @@ Route::prefix('produits')->group(function() {
 
 /* --- Admin --- */
 Route::prefix('administrateur')->group(function() {
+
     Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
-    Route::get('/produits', [ProductsController::class, 'create'])->name('shop.products.create');
-    Route::post('/produits', [ProductsController::class, 'store'])->name('shop.products.store');
+    Route::get('/produits', [DashboardController::class, 'products'])->name('admin.products');
+
+    Route::get('/produits/nouveau', [ProductsController::class, 'create'])->name('shop.products.create');
+    Route::post('/produits/nouveau', [ProductsController::class, 'store'])->name('shop.products.store');
+
+    Route::get('/produits/modifier/{id}', [ProductsController::class, 'edit'])
+        ->where('id', '[0-9]+')
+        ->name('shop.products.edit');
+
+    Route::put('/produits/modifier/{id}', [ProductsController::class, 'update'])
+        ->where('id', '[0-9]+')
+        ->name('shop.products.update');
+
+    Route::get('/produits/supprimer/{id}', [ProductsController::class, 'delete'])
+        ->where('id', '[0-9]+')
+        ->name('shop.products.delete');
+
+    Route::delete('/produits/supprimer/{id}', [ProductsController::class, 'destroy'])
+        ->where('id', '[0-9]+')
+        ->name('shop.products.destroy');
 });
