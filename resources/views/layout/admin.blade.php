@@ -12,7 +12,7 @@
 
     <body>
 
-        <header>
+        <header class="sidebar">
             <nav>
                 <ul>
                     <li><a href="{{ route('admin.index') }}">Dashboard</a></li>

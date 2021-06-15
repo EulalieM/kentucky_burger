@@ -6,6 +6,8 @@
 
 @section('content')
 
+<div class="content">
+    <h1>Produits actuellement en BDD</h1>
     @forelse ($products as $product)
         <div>
             {{ $product->id }}
@@ -20,7 +22,8 @@
         </div>
     @empty
         <p>Aucun produits enregistré.</p>
-        <a href="{{ route('shop.products.create') }}">Créer un produit</a>
     @endforelse
+    <a href="{{ route('shop.products.create') }}">Créer un nouveau produit</a>
+</div>
 
 @endsection

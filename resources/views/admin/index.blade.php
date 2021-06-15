@@ -8,6 +8,8 @@ Administrateur
 
 @section('content')
 
-<p>Dashboard du back-office réservé aux administrateurs</p>
+<div class="content">
+    <h1>Tableau de bord</h1>
+</div>
 
 @endsection
