@@ -15,13 +15,15 @@
         <header class="sidebar">
             <nav>
                 <ul>
-                    <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
+                    <li><a href="{{ route('admin.index') }}">Tableau de bord</a></li>
                     <li><a href="{{ route('admin.products') }}">Gestion des produits</a></li>
+                    <li><a href="{{ route('admin.blog') }}">Gestion du blog</a></li>
+                    <li><a href="{{ route('pages.index') }}">Retour au site</a></li>
                 </ul>
             </nav>
         </header>
 
-        <main>
+        <main class="content">
             @yield('content')
         </main>
 

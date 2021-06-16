@@ -1,13 +1,11 @@
 @extends('layout.default')
 
 @section('title')
-
-Contact
-
+    Contact
 @endsection
 
 @section('content')
 
-<p>Page contact pour les utilisateurs</p>
+    <p>Page contact pour les utilisateurs</p>
 
 @endsection

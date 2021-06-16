@@ -1,14 +1,13 @@
 @extends('layout.admin')
 
 @section('title')
-
-Administrateur - Supprimer un produit produits
-
+    Administrateur - Supprimer un produit
 @endsection
 
 @section('content')
 
-<div class="content">
+    <h1>Supprimer le produit {{ $product->name }}</h1>
+
     <form action="{{ route('shop.products.destroy', ['id' => $product->id]) }}" method="post">
 
         @csrf
@@ -20,6 +19,5 @@ Administrateur - Supprimer un produit produits
         <a href="{{ route('admin.products') }}">Retour</a>
 
     </form>
-</div>
 
 @endsection

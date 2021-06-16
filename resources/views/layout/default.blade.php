@@ -42,6 +42,7 @@
         <footer>
             <div class="footer-content">
                 <div class="liens">
+                    <a href="{{ route('blog.index') }}">Blog</a>
                     <a href="{{ route('pages.sitemap') }}">Plan du site</a>
                     <a href="{{ route('pages.legal_notice') }}">Mentions légales</a>
                 </div>

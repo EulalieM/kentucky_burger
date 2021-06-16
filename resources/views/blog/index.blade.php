@@ -1,11 +1,11 @@
 @extends('layout.default')
 
 @section('title')
-    Mentions légales
+    Blog
 @endsection
 
 @section('content')
 
-    <p>Page des mentions légales</p>
-
+    <h1>Blog</h1>
+    
 @endsection

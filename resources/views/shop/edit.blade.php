@@ -1,14 +1,10 @@
 @extends('layout.admin')
 
 @section('title')
-
-Administrateur - Modifier un produits
-
+    Administrateur - Modifier un produits
 @endsection
 
 @section('content')
-
-<div class="content">
 
     <h1>Modifier le produit {{ $product->name }}</h1>
 
@@ -22,10 +18,10 @@ Administrateur - Modifier un produits
             <div class="error">{{ $message }}</div>
         @enderror
         <label for="category">Catégorie</label>
-        <!-- /!\ peut mieux faire ... -->
+        <!-- A changer : créer categories pour produits -->
         <select name="category" id="category">
             <option value="{{ $product->category }}">{{ $product->category }}</option>
-            <option value="Burger">Burger</option>
+            <option value="Burgers">Burger</option>
             <option value="Boissons">Boissons</option>
             <option value="Desserts">Desserts</option>
         </select>
@@ -61,9 +57,7 @@ Administrateur - Modifier un produits
         <input type="number" name="stock" id="stock" step="1" value="{{ $product->stock }}">
 
         <input type="submit" value="Modifier le produit">
-        
-    </form>
 
-</div>
+    </form>
 
 @endsection

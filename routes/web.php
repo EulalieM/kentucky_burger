@@ -9,6 +9,10 @@ use App\Http\Controllers\Pages\ContactController;
 /* --- Shop --- */
 use App\Http\Controllers\Shop\ProductsController;
 
+/* --- Blog --- */
+use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\Blog\CategoriesController;
+
 /* --- Admin --- */
 use App\Http\Controllers\admin\DashboardController;
 
@@ -39,28 +43,75 @@ Route::prefix('produits')->group(function() {
         ->where('id', '[0-9]+');
 });
 
+/* --- Blog --- */
+Route::prefix('blog')->group(function() {
+    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/article', [BlogController::class, 'article'])->name('blog.article');
+});
+
 /* --- Admin --- */
 Route::prefix('administrateur')->group(function() {
 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
-    Route::get('/produits', [DashboardController::class, 'products'])->name('admin.products');
 
-    Route::get('/produits/nouveau', [ProductsController::class, 'create'])->name('shop.products.create');
-    Route::post('/produits/nouveau', [ProductsController::class, 'store'])->name('shop.products.store');
+    Route::prefix('/produits')->group(function() {
+        Route::get('/', [DashboardController::class, 'products'])->name('admin.products');
 
-    Route::get('/produits/modifier/{id}', [ProductsController::class, 'edit'])
-        ->where('id', '[0-9]+')
-        ->name('shop.products.edit');
+        Route::get('/nouveau', [ProductsController::class, 'create'])->name('shop.products.create');
+        Route::post('/nouveau', [ProductsController::class, 'store'])->name('shop.products.store');
 
-    Route::put('/produits/modifier/{id}', [ProductsController::class, 'update'])
-        ->where('id', '[0-9]+')
-        ->name('shop.products.update');
+        Route::get('/modifier/{id}', [ProductsController::class, 'edit'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.edit');
+        Route::put('/modifier/{id}', [ProductsController::class, 'update'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.update');
 
-    Route::get('/produits/supprimer/{id}', [ProductsController::class, 'delete'])
-        ->where('id', '[0-9]+')
-        ->name('shop.products.delete');
+        Route::get('/supprimer/{id}', [ProductsController::class, 'delete'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.delete');
+        Route::delete('/supprimer/{id}', [ProductsController::class, 'destroy'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.destroy');
+    });
 
-    Route::delete('/produits/supprimer/{id}', [ProductsController::class, 'destroy'])
-        ->where('id', '[0-9]+')
-        ->name('shop.products.destroy');
+    Route::prefix('/blog/category')->group(function() {
+        Route::get('/nouveau', [CategoriesController::class, 'create'])->name('blog.categories.create');
+        Route::post('/nouveau', [CategoriesController::class, 'store'])->name('blog.categories.store');
+
+        Route::get('/modifier/{id}', [CategoriesController::class, 'edit'])
+            ->where('id', '[0-9]+')
+            ->name('blog.categories.edit');
+        Route::put('/modifier/{id}', [CategoriesController::class, 'update'])
+            ->where('id', '[0-9]+')
+            ->name('blog.categories.update');
+
+        Route::get('/supprimer/{id}', [CategoriesController::class, 'delete'])
+            ->where('id', '[0-9]+')
+            ->name('blog.categories.delete');
+        Route::delete('/supprimer/{id}', [CategoriesController::class, 'destroy'])
+            ->where('id', '[0-9]+')
+            ->name('blog.categories.destroy');
+    });
+
+    Route::prefix('/blog/article')->group(function() {
+        Route::get('/', [DashboardController::class, 'blog'])->name('admin.blog');
+
+        Route::get('/nouveau', [BlogController::class, 'create'])->name('blog.article.create');
+        Route::post('/nouveau', [BlogController::class, 'store'])->name('blog.article.store');
+
+        Route::get('/modifier/{id}', [BlogController::class, 'edit'])
+            ->where('id', '[0-9]+')
+            ->name('blog.article.edit');
+        Route::put('/modifier/{id}', [BlogController::class, 'update'])
+            ->where('id', '[0-9]+')
+            ->name('blog.article.update');
+
+        Route::get('/supprimer/{id}', [BlogController::class, 'delete'])
+            ->where('id', '[0-9]+')
+            ->name('blog.article.delete');
+        Route::delete('/supprimer/{id}', [BlogController::class, 'destroy'])
+            ->where('id', '[0-9]+')
+            ->name('blog.article.destroy');
+    });
 });

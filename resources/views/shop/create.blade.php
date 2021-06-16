@@ -1,14 +1,10 @@
 @extends('layout.admin')
 
 @section('title')
-
-Administrateur - Gestion des produits
-
+    Administrateur - Créer un produits
 @endsection
 
 @section('content')
-
-<div class="content">
 
     <h1>Ajouter un produit en BDD</h1>
 
@@ -58,6 +54,5 @@ Administrateur - Gestion des produits
 
         <input type="submit" value="Ajouter le produit">
     </form>
-</div>
 
 @endsection

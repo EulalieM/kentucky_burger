@@ -1,14 +1,12 @@
 @extends('layout.default')
 
 @section('title')
-
-Plan du site
-
+    Plan du site
 @endsection
 
 @section('content')
 
-<p>Le plan du site</p>
+    <p>Le plan du site</p>
 
 @endsection
 
