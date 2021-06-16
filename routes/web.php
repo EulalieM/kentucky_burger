@@ -38,15 +38,18 @@ Route::post('/contact', [ContactController::class, 'process'])->name('pages.cont
 Route::prefix('produits')->group(function() {
     Route::get('/', [ProductsController::class, 'index'])->name('shop.index');
     Route::get('/{slug}-{id}', [ProductsController::class, 'read'])
-        ->name('shop.read')
         ->where('slug', '[a-zA-Z0-9-_]+')
-        ->where('id', '[0-9]+');
+        ->where('id', '[0-9]+')
+        ->name('shop.read');
 });
 
 /* --- Blog --- */
 Route::prefix('blog')->group(function() {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
-    Route::get('/article', [BlogController::class, 'article'])->name('blog.article');
+    Route::get('/articles/{slug}-{id}', [BlogController::class, 'article'])
+        ->where('slug', '[a-zA-Z0-9-_]+')
+        ->where('id', '[0-9]+')
+        ->name('blog.article');
 });
 
 /* --- Admin --- */

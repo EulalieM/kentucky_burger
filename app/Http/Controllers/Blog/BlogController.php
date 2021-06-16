@@ -12,16 +12,17 @@ use App\Models\Category;
 class BlogController extends Controller
 {
     public function index() {
-        return view('blog.index');
+        $articles = Article::all();
+        return view('blog.index', compact('articles'));
     }
 
-    public function article() {
-        return view('blog.article');
+    public function article($slug, $id) {
+        $article = Article::find($id);
+        return view('blog.articles.article', compact('article'));
     }
 
     public function create() {
         $categories = Category::all();
-
         return view('blog.articles.create', compact('categories'));
     }
 
