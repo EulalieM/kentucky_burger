@@ -15,6 +15,7 @@ use App\Http\Controllers\Blog\CategoriesController;
 
 /* --- Admin --- */
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\Blog\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,10 +47,16 @@ Route::prefix('produits')->group(function() {
 /* --- Blog --- */
 Route::prefix('blog')->group(function() {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
-    Route::get('/articles/{slug}-{id}', [BlogController::class, 'article'])
-        ->where('slug', '[a-zA-Z0-9-_]+')
-        ->where('id', '[0-9]+')
-        ->name('blog.article');
+    
+    Route::prefix('articles')->group(function() {
+        Route::get('/{slug}-{id}', [BlogController::class, 'article'])
+            ->where('slug', '[a-zA-Z0-9-_]+')
+            ->where('id', '[0-9]+')
+            ->name('blog.article');
+        Route::prefix('comments')->group(function() {
+            Route::post('/nouveau', [CommentsController::class, 'store'])->name('blog.articles.comments.store');
+        });
+    });
 });
 
 /* --- Admin --- */

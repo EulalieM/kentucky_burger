@@ -17,7 +17,24 @@ class BlogController extends Controller
     }
 
     public function article($slug, $id) {
-        $article = Article::find($id);
+        // $comments = Article::find($id)->comments;
+        // $article = Article::find($id);
+        // 2 requetes
+
+        // $comments = Article::find($id)->comments()
+        //     ->orderBy('updated_at', 'DESC')
+        //     ->limit(5)
+        //     ->where('parent_id', 0)
+        //     ->get();
+        // $article = Article::find($id);
+        // 2 requetes
+
+
+        $article = Article::with(['comments' => function($query) {
+            $query->where('parent_id', 0)->orderBy('created_at', 'ASC');
+        }])->find($id);
+        //1 requete
+
         return view('blog.articles.article', compact('article'));
     }
 

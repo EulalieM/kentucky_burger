@@ -15,11 +15,22 @@
     </div>
 
     <!-- Affichage des commentaires -->
-    {{-- @foreach ( as )
+    @forelse ( $article->comments as $comment)
+        <div class="comment">
+            <p>{{ $comment->content }}</p>
+        </div>
+    @empty
+        <div>Soyez le premier à commenter !!!</div>
+    @endforelse 
 
-    @endforeach --}}
+    @error('comment')
+    <div class="error">{{ $message }}</div>
+    @enderror
 
-    <form action="" method="">
+    <form action="{{ route('blog.articles.comments.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="article" value="{{ $article->id }}">
+        <input type="hidden" name="parent" value="0">
         <label for="comment">Ajouter un commentaire</label>
         <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
         <input type="submit" value="Poster le commentaire">
