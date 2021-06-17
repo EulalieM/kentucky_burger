@@ -82,6 +82,26 @@ Route::prefix('administrateur')->group(function() {
 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
 
+    /* Catégories Produits*/
+    Route::prefix('/produits/categorie')->group(function() {
+
+        Route::get('/nouveau', [ProductsCategoriesController::class, 'create'])->name('test');
+        Route::post('/nouveau', [ProductsCategoriesController::class, 'store'])->name('truc');
+
+        Route::get('/modifier/{id}', [ProductsCategoriesController::class, 'edit'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.categories.edit');
+        Route::put('/modifier/{id}', [ProductsCategoriesController::class, 'update'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.categories.update');
+        Route::get('/supprimer/{id}', [ProductsCategoriesController::class, 'delete'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.categories.delete');
+        Route::delete('/supprimer/{id}', [ProductsCategoriesController::class, 'destroy'])
+            ->where('id', '[0-9]+')
+            ->name('shop.products.categories.destroy');
+    });
+
     /* Produits */
     Route::prefix('/produits')->group(function() {
         Route::get('/', [DashboardController::class, 'products'])->name('admin.products');
@@ -99,27 +119,6 @@ Route::prefix('administrateur')->group(function() {
         Route::delete('/supprimer/{id}', [ProductsController::class, 'destroy'])
             ->where('id', '[0-9]+')
             ->name('shop.products.destroy');
-    });
-
-    /* Catégories Produits*/
-    Route::prefix('/produits/categorie')->group(function() {
-
-        Route::get('/nouveau', [ProductsCategoriesController::class, 'create'])
-            ->name('test');
-        Route::post('/nouveau', [ProductsCategoriesController::class, 'store'])->name('truc');
-
-        Route::get('/modifier/{id}', [ProductsCategoriesController::class, 'edit'])
-            ->where('id', '[0-9]+')
-            ->name('shop.products.categories.edit');
-        Route::put('/modifier/{id}', [ProductsCategoriesController::class, 'update'])
-            ->where('id', '[0-9]+')
-            ->name('shop.products.categories.update');
-        Route::get('/supprimer/{id}', [ProductsCategoriesController::class, 'delete'])
-            ->where('id', '[0-9]+')
-            ->name('shop.products.categories.delete');
-        Route::delete('/supprimer/{id}', [ProductsCategoriesController::class, 'destroy'])
-            ->where('id', '[0-9]+')
-            ->name('shop.products.categories.destroy');
     });
 
     /* Catégories Article*/

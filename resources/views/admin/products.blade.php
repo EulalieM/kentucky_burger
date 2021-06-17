@@ -7,7 +7,7 @@
 @section('content')
 
     <p>Catégories actuellement en BDD</p>
-    {{-- Liste des categories
+    {{-- Liste des categories  --}}
     @forelse ($categories as $category)
         <div>
             {{$category->name}}
@@ -16,7 +16,7 @@
         </div>
     @empty
         <p>Aucune categorie</p>
-    @endforelse --}}
+    @endforelse
     <a href="{{route('test')}}">Créer une catégorie</a>
 
     <h1>Produits actuellement en BDD</h1>

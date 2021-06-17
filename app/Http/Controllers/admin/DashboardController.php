@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Product_Category;
+use App\Models\ProductCategory;
 
 class DashboardController extends Controller
 {
@@ -16,9 +17,9 @@ class DashboardController extends Controller
     }
 
     public function products() {
-
+        $categories = ProductCategory::all();
         $products = Product::all();
-        return view('admin.products', compact('products'));
+        return view('admin.products', compact('products', 'categories'));
     }
 
     // Dashboard du blog
