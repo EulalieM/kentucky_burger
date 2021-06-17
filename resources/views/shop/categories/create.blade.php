@@ -1,14 +1,14 @@
 @extends('layout.admin')
 
 @section('title')
-    Administrateur - Créer une catégorie d'articles
+    Administrateur - Créer une catégorie de produits
 @endsection
 
 @section('content')
 
-    <h1>Créer une catégorie d'articles</h1>
+    <h1>Créer une catégorie de produits</h1>
 
-    <form action="{{route('blog.categories.store')}}" method="post">
+    <form action="" method="post">
 
         @csrf
 

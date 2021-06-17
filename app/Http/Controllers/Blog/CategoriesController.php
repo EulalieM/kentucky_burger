@@ -6,13 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestCreateBlogCategory;
 use App\Http\Requests\RequestUpdateBlogCategory;
 use App\Models\Category;
-use App\Models\Article;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
     public function index() {
-        return view('blog.create');
+        return view('admin.blog');
     }
 
     public function create() {

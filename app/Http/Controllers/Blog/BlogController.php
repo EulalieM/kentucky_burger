@@ -17,7 +17,9 @@ class BlogController extends Controller
     }
 
     public function article($slug, $id) {
-        $article = Article::find($id);
+        $article = Article::with(['comments' => function($query) {
+            $query->where('parent_id', 0)->orderBy('created_at', 'ASC');
+        }])->find($id);
         return view('blog.articles.article', compact('article'));
     }
 
@@ -61,5 +63,4 @@ class BlogController extends Controller
         Article::destroy($id);
         return redirect(route('admin.blog'));
     }
-
 }

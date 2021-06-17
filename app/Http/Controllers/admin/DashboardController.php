@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Product_Category;
 
 class DashboardController extends Controller
 {
@@ -15,6 +16,7 @@ class DashboardController extends Controller
     }
 
     public function products() {
+
         $products = Product::all();
         return view('admin.products', compact('products'));
     }

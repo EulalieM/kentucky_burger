@@ -6,7 +6,21 @@
 
 @section('content')
 
+    <p>Catégories actuellement en BDD</p>
+    {{-- Liste des categories
+    @forelse ($categories as $category)
+        <div>
+            {{$category->name}}
+            <a href="{{ route('shop.products.categories.edit', ['id'=> $category->id]) }}">Modifier</a>
+            <a href="{{ route('shop.products.categories.delete', ['id'=> $category->id]) }}">Supprimer</a>
+        </div>
+    @empty
+        <p>Aucune categorie</p>
+    @endforelse --}}
+    <a href="{{route('test')}}">Créer une catégorie</a>
+
     <h1>Produits actuellement en BDD</h1>
+    {{-- Liste des produits --}}
     @forelse ($products as $product)
         <div>
             {{ $product->id }}
