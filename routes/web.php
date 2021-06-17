@@ -8,7 +8,7 @@ use App\Http\Controllers\Pages\ContactController;
 
 /* --- Shop --- */
 use App\Http\Controllers\Shop\ProductsController;
-use App\Http\Controllers\Blog\ProductsCategoriesController;
+use App\Http\Controllers\Shop\ProductsCategoriesController;
 
 /* --- Blog --- */
 use App\Http\Controllers\Blog\BlogController;
