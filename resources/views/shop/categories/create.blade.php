@@ -8,7 +8,7 @@
 
     <h1>Créer une catégorie de produits</h1>
 
-    <form action="" method="post">
+    <form action="{{route('truc')}}" method="post">
 
         @csrf
 

@@ -106,7 +106,7 @@ Route::prefix('administrateur')->group(function() {
 
         Route::get('/nouveau', [ProductsCategoriesController::class, 'create'])
             ->name('test');
-        Route::post('/nouveau', [ProductsCategoriesController::class, 'store']);
+        Route::post('/nouveau', [ProductsCategoriesController::class, 'store'])->name('truc');
 
         Route::get('/modifier/{id}', [ProductsCategoriesController::class, 'edit'])
             ->where('id', '[0-9]+')
