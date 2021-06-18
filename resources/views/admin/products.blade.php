@@ -24,7 +24,7 @@
     @forelse ($products as $product)
         <div>
             {{ $product->id }}
-            {{ $product->category }}
+            {{ $product->product_category_id }}
             {{ $product->name }}
             {{ $product->description }}
             {{ $product->price }}

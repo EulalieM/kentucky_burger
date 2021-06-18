@@ -17,6 +17,7 @@
         @error('category')
             <div class="error">{{ $message }}</div>
         @enderror
+        <label for="category_id">Catégorie</label>
         <select name="category_id" id="category_id">
             @foreach ($categories as $category)
                 <option {{ $category->id == $article->category_id ? 'selected':'' }} value="{{ $category->id }}">{{ $category->name }}</option>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RequestCreateProduct;
 use App\Http\Requests\RequestUpdateProduct;
 use App\Models\Product;
+use App\Models\ProductCategory;
 
 class ProductsController extends Controller
 {
@@ -25,29 +26,39 @@ class ProductsController extends Controller
     /* --- Form admin --- */
 
     public function create() {
-        return view('shop.create');
+        $categories = ProductCategory::all();
+        return view('shop.create', compact('categories'));
     }
 
     public function store(RequestCreateProduct $request) {
-        $product = new Product($request->except('_token'));
+        // $product = new Product($request->except('_token')) : ne récupère pas : $product->product_category_id = $request->get('category');
+        // dd($product);
+        $product = new Product();
+        $product->name = $request->get('name');
+        $product->description = $request->get('description');
+        $product->price = $request->get('price');
+        $product->image = $request->get('image');
+        $product->stock = $request->get('stock');
+        $product->product_category_id = $request->get('category');
         // dd($product);
         $product->save();
         return redirect(route('admin.products'));
     }
 
     public function edit($id) {
+        $categories = ProductCategory::all();
         $product = Product::find($id);
-        return view('shop.edit', compact('product'));
+        return view('shop.edit', compact('product', 'categories'));
     }
 
     public function update(RequestUpdateProduct $request, $id) {
         $product = Product::find($id);
-        $product->category = $request->get('category');
         $product->name = $request->get('name');
         $product->description = $request->get('description');
         $product->price = $request->get('price');
         $product->image = $request->get('image');
         $product->stock = $request->get('stock');
+        $product->product_category_id = $request->get('category');
         $product->save();
         return redirect(route('admin.products'));
     }

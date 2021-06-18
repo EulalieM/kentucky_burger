@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Product_Category;
 use App\Models\ProductCategory;
 
 class DashboardController extends Controller
@@ -22,7 +21,6 @@ class DashboardController extends Controller
         return view('admin.products', compact('products', 'categories'));
     }
 
-    // Dashboard du blog
     public function blog() {
         $categories = Category::all();
         $articles = Article::all();

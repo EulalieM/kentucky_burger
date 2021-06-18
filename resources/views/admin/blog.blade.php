@@ -23,6 +23,7 @@
     {{-- Liste des articles --}}
     @forelse ($articles as $article)
         <div>
+            {{$article->category_id}}
             {{$article->name}}
             <a href="{{ route('blog.article.edit', ['id'=> $article->id]) }}">Modifier</a>
             <a href="{{ route('blog.article.delete', ['id'=> $article->id]) }}">Supprimer</a>

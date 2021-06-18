@@ -15,11 +15,10 @@
         @error('category')
             <div class="error">{{ $message }}</div>
         @enderror
-        <label for="category">Catégorie</label>
         <select name="category" id="category">
-            <option value="Burgers">Burgers</option>
-            <option value="Boissons">Boissons</option>
-            <option value="Desserts">Desserts</option>
+            @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
         </select>
 
         @error('name')

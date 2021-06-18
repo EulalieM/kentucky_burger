@@ -24,6 +24,7 @@ class RequestCreateBlogArticle extends FormRequest
     public function rules()
     {
         return [
+            // nom des names
             'category' => 'required|numeric|exists:categories,id',
             'name' => 'required|unique:articles|min:3',
             'image' => 'required|url',

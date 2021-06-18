@@ -24,12 +24,13 @@ class RequestCreateProduct extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required',
+            // nom des names
             'name' => 'required|unique:products',
             'description' => 'required',
             'price' => 'required|numeric',
             'image' => 'required',
             'stock' => 'required|numeric',
+            'category' => 'required|numeric|exists:product_categories,id' // nom de la table après exists
         ];
     }
 }
